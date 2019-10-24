@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+p.center {
+    text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+body {
+    font-size: 18px;
+    font-family: cursive;
+    background-color: #F3EEEE;
+}
+
+hr {
+  border: 1px solid black;
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LABORATORY WORK №2</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="smile.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="CANVAS&SVGproject.css">
+</head>
+<body>
+    <h1>LABORATORY WORK №2</h1>
+    <hr>
+    <div class="row">
+        <div class="column">
+            <h2>CANVAS</h2>
+            <hr>
+
+            <p>The HTML &ltcanvas&gt element is used to draw graphics, on the fly, via scripting (usually JavaScript).</p>
+            <p>The &ltcanvas&gt element is only a container for graphics. You must use a script to actually draw the graphics.</p>
+            <p>Canvas has several methods for drawing paths, boxes, circles, text, and adding images.</p>
+
+            <h3>Blur Effects</h3>
+            <p>Here you see an example of blur() method usage:</p>
+            <canvas id="blurCanvas" width="700" height="150">
+                Your browser does not support the canvas element.
+            </canvas>
+            <script>
+            var canvas = document.getElementById('blurCanvas');
+            var ctx = canvas.getContext('2d');
+            ctx.filter = 'blur(4px)';
+            ctx.font = '48px serif';
+            ctx.fillText('Now you see a blured text.', 50, 100);
+            </script>
+            <h3>Text</h3>
+            <p>To draw text on a canvas, the most important property and methods are:</p>
+            <li><i>font</i> - defines the font properties for the text</li>
+            <li><i>fillText(text,x,y)</i> - draws "filled" text on the canvas</li>
+            <li><i>strokeText(text,x,y)</i> - draws text on the canvas (no fill)</li>
+            <canvas id="textCanvas1" width="200" height="100">
+                Your browser does not support the canvas element.
+            </canvas>
+            <script>
+            var canvas = document.getElementById("textCanvas1");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "30px Arial";
+            ctx.fillText("I Am a Text.",10,50);
+            </script>
+            <canvas id="textCanvas2" width="200" height="100">
+                Your browser does not support the canvas element.
+            </canvas>
+            <script>
+            var canvas = document.getElementById("textCanvas2");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "50px serif";
+            ctx.strokeText("Me Too.",20,80);
+            </script>
+            <canvas id="textCanvas3" width="300" height="100">
+                Your browser does not support the canvas element.
+            </canvas>
+            <script>
+            var canvas = document.getElementById("textCanvas3");
+            var ctx=canvas.getContext("2d");
+            ctx.font="30px Comic Sans MS";
+            ctx.fillStyle = "green";
+            ctx.textAlign = "center";
+            ctx.fillText("So I Am.", canvas.width/2, canvas.height/2);
+            </script>
+            <h3>Drop Shadows</h3>
+            <p>In HTML5 canvas, you can add shadows on a shape, a line, text, or an image which can create a sense of third dimension.</p>
+            <p>Here are some examples:</p>
+            <canvas id="RectCanvas" width="300" height="150"></canvas>
+            <script>
+            var canvas = document.getElementById("RectCanvas");
+            if (canvas.getContext)
+            {
+                var ctx = canvas.getContext('2d');
+                ctx.rect(80, 20, 150, 80);
+                ctx.fillStyle = 'red';
+                ctx.shadowColor = '#898';
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetX = 20;
+                ctx.shadowOffsetY = 20;
+                ctx.fill();
+            }
+            </script>
+            <canvas id="TextCanvas" width="400" height="150"></canvas>
+            <script>
+            var canvas = document.getElementById("TextCanvas");
+            if (canvas.getContext)
+            {
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = 'orange';
+                ctx.shadowColor = '#898';
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetX = 20;
+                ctx.shadowOffsetY = 20;
+                //ctx.fill();
+                ctx.font = 'italic 32px sans-serif';
+                ctx.fillText('Text With Shadow', 10, 50);
+            }
+        </script>
+            <h3>Stroke</h3>
+            <p>Method stroke() is used for drawing.</p>
+            <p>Here is an example:</p>
+            <canvas id="strokeCanvas" width="700" height="210">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+            <script>
+            var c = document.getElementById("strokeCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(100, 10);
+            ctx.lineTo(10, 200);
+            ctx.moveTo(100, 10);
+            ctx.lineTo(190, 200);
+            ctx.moveTo(55, 100);
+            ctx.lineTo(145, 100);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+            </script>
+        </div>
+        <div class="column">
+            <h2>SVG</h2>
+            <hr>
+            <li><b>SVG</b> stands for Scalable Vector Graphics</li>
+            <li><b>SVG</b> is used to define vector-based graphics for the Web</li>
+            <li><b>SVG</b> defines the graphics in XML format</li>
+            <li>Every element and every attribute in <b>SVG</b> files can be animated</li>
+            <h3>Rectangle</h3>
+            <p>The <b>&ltrect&gt</b> element is used to create a rectangle and variations of a rectangle shape:</p>
+            <p>Here are some examples:</p>
+            <svg width="200" height="100">
+                <rect width="190" height="80" style="fill:rgb(23,34,0);stroke-width:3;stroke:rgb(0,0,0)" />
+            </svg>
+            <svg width="210" height="210">
+                <rect x="5" y="5" width="200" height="200"style="fill:yellow;stroke:orange;stroke-width:10;fill-opacity:1;stroke-opacity:0.9" />
+            </svg>
+            <svg width="310" height="210">
+                <rect x="5" y="5" width="300" height="200" style="fill:green;stroke:red;stroke-width:5;opacity:1" />
+            </svg>
+            <h3>Polyline</h3>
+            <p>The <b>&ltpolyline&gt</b> element is used to create any shape that consists of only straight lines (that is connected at several points</p>
+            <p>Here are some examples:</p>
+            <svg height="200" width="300">
+                <polyline points="40,40 80,50 120,80 160,120 250,180 220,40 290,100 70,200" style="fill:none;stroke:black;stroke-width:3" />
+            </svg>
+            <svg height="200" width="300">
+                <polyline points="0,40 70,40 70,80 140,80 140,120 210,120 210,160 270,160 270,290" style="fill:transparent;stroke:blue;stroke-width:4" />
+            </svg>
+            <h3>Circle</h3>
+            <p>The <b>&ltcircle&gt</b> element is used to create a circle.</p>
+            <p>Here are some examples:</p>
+            <svg height="200" width="150">
+                <circle cx="100" cy="100" r="40" stroke="green" stroke-width="3" fill="red" />
+            </svg>
+            <svg height="200" width="200">
+                <circle cx="100" cy="100" r="65" stroke="blue" stroke-width="6" fill="yellow" />
+            </svg>
+            <svg height="200" width="200">
+                <circle cx="100" cy="100" r="95" stroke="pink" stroke-width="9" fill="green" />
+            </svg>
+            <h3>Text</h3>
+            <p>The <b>&lttext&gt</b> element is used to define a text.</p>
+            <p>Here are some examples:</p>
+            <svg height="100" width="200">
+                <text x="0" y="50" fill="green">I Am a Text!</text>
+            </svg>
+            <svg height="100" width="220">
+                <text x="0" y="10" fill="orange" transform="rotate(20 10,120)">I Am a Rotated Text!</text>
+            </svg>
+            <svg height="100" width="270" xmlns:xlink="https://www.w3.org/1999/xlink">
+                <a xlink:href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics" target="_blank">
+                    <text x="0" y="40" fill="red">Click for More Info about SVG</text>
+                </a>
+            </svg>
+        </div>
+    </div>
+    <hr>
+    <p class="center">For more information visit website <a href="https://www.w3schools.com">www.w3schools.com</a>.</p>
+</body>
+</html>
